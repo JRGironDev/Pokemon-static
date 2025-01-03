@@ -10,8 +10,10 @@ const id = url.split("/").at(-2);
 const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 ---
 
+<!-- href={`/pokemons/${name}`} -->
+
 <a
-  href={`/pokemons/${name}`}
+  href={`/pokemons/${id}`}
   target="_blank"
   rel="noopener noreferrer"
   class:list={[
