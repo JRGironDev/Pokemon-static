@@ -20,6 +20,7 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
   ]}
 >
   <img
+    transition:name={`${name}-image`}
     src={imageSrc}
     alt="{name}"
     class:list={["mx-auto", isBig ? "w-80" : "w-48"]}
