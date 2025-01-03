@@ -25,10 +25,41 @@ const { page } = Astro.props;
     {page.data.map(({ name, url }) => <PokemonCard name={name} url={url} />)}
   </section>
 
-  <section class="mt-10 mx-auto flex items-center px-10 gap-2">
-    <a href="/" class="btn">Anterior</a>
-    <span>1</span>
-    <a href="/" class="btn">Siguiente</a>
+  <section class="mt-10 mx-auto flex items-center gap-2">
+    <!--{
+      page.url.prev && (
+        <a href={page.url.prev} class="btn">
+          Anterior
+        </a>
+      )
+  } -->
+
+    <a
+      href={page.url.prev}
+      class:list={[
+        "btn",
+        {
+          disabled: !page.url.prev,
+        },
+      ]}
+    >
+      Anterior
+    </a>
+
+    <a
+      href={page.url.next}
+      class:list={[
+        "btn",
+        {
+          disabled: !page.url.next,
+        },
+      ]}
+    >
+      Siguiente
+    </a>
+
+    <div class="flex flex-1"></div>
+    <span class="text-xl font-bold">Página {page.currentPage}</span>
   </section>
 </MainLayout>
 
