@@ -1,5 +1,6 @@
 ---
-import { ClientRouter } from "astro:transitions";
+//import { ClientRouter } from "astro:transitions";
+import NavBar from "@components/shared/NavBar.astro";
 import { siteInfo } from "src/consts/site-info";
 
 interface Props {
@@ -8,7 +9,11 @@ interface Props {
   description?: string;
 }
 
-const { title = siteInfo.title, description = siteInfo.description, image } = Astro.props;
+const {
+  title = siteInfo.title,
+  description = siteInfo.description,
+  image,
+} = Astro.props;
 ---
 
 <html>
@@ -19,8 +24,8 @@ const { title = siteInfo.title, description = siteInfo.description, image } = As
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-     <meta name="description" content={description} />
-     <meta name="author" content="José Quiñónez" />
+    <meta name="description" content={description} />
+    <meta name="author" content="José Quiñónez" />
 
     <!-- OG Metatags -->
     <meta property="og:title" content={title} />
@@ -28,10 +33,17 @@ const { title = siteInfo.title, description = siteInfo.description, image } = As
     <meta property="og:image" content={image} />
 
     <title>{title}</title>
-    <ClientRouter />
+    <!-- <ClientRouter /> -->
+    <style>
+      @view-transition {
+        navigation: auto; /* enabled! */
+      }
+    </style>
   </head>
-  <body class="bg-slate-800 text-slate-100 m-auto max-w-3xl">
-    <main class="mt-5"></main>
-    <slot />
+  <body class="bg-slate-800 text-slate-100">
+    <NavBar />
+    <main class="mt-5 m-auto max-w-5xl">
+      <slot />
+    </main>
   </body>
 </html>
