@@ -4,6 +4,7 @@ import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import MainLayout from "@layouts/MainLayout.astro";
 
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
+import Title from "@components/shared/Title.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -17,10 +18,10 @@ const { page } = Astro.props;
 ---
 
 <MainLayout title={title}>
-  <h1 class="text-3xl mb-4">Listado de Pókemons</h1>
+  <Title>Listado de Pókemons</Title>
 
   <section
-    aria-label="Listado de Polémons"
+    aria-label="Listado Paginado de Pokémons"
     class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
   >
     {page.data.map(({ name, url }) => <PokemonCard name={name} url={url} />)}
