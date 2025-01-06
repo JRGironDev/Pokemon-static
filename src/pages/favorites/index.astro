@@ -1,8 +1,7 @@
 ---
-import { Counter } from "@components/shared/Counter";
+import { FavoritePokemons } from "@components/pokemons/FavoritePokemons";
 import Title from "@components/shared/Title.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import type { init } from "astro/virtual-modules/prefetch.js";
 
 const title = "Favoritos";
 ---
@@ -10,10 +9,5 @@ const title = "Favoritos";
 <MainLayout title={title}>
   <Title>Favoritos</Title>
 
-  <Counter
-    transition:persist="counter"
-    transition:persist-props
-    client:visible
-    initValue={15}
-  />
+  <FavoritePokemons client:only="solid-js" />
 </MainLayout>
