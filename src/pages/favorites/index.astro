@@ -1,10 +1,19 @@
 ---
+import { Counter } from "@components/shared/Counter";
 import Title from "@components/shared/Title.astro";
 import MainLayout from "@layouts/MainLayout.astro";
+import type { init } from "astro/virtual-modules/prefetch.js";
 
 const title = "Favoritos";
 ---
 
 <MainLayout title={title}>
   <Title>Favoritos</Title>
+
+  <Counter
+    transition:persist="counter"
+    transition:persist-props
+    client:visible
+    initValue={15}
+  />
 </MainLayout>

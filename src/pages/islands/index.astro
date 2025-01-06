@@ -4,6 +4,7 @@ import Title from "@components/shared/Title.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 
 const title = "Favoritos";
+const counterValue = 20;
 ---
 
 <MainLayout title={title}>
@@ -20,4 +21,9 @@ const title = "Favoritos";
 </MainLayout>
 
 <!-- <Counter client:only="solid-js" /> -->
-<Counter client:visible />
+<Counter
+  client:visible
+  transition:persist="counter"
+  transition:persist-props
+  initValue={counterValue}
+/>
