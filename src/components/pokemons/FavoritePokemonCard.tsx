@@ -27,7 +27,7 @@ export const FavoritePokemonCard: Component<Props> = (props) => {
         <Show when={isVisible()}>
             <div class="flex flex-col mx-auto justify-center p-4 text-slate-100">
                 <a href={`/pokemons/${pokemon.name}`} target="_blank" rel="noopener noreferrer">
-                    <img src={imageSrc} alt={pokemon.name} class="w-28 h-28" />
+                    <img src={imageSrc} alt={pokemon.name} class="w-28 h-28" style={`view-transition-name: ${pokemon.name}-image`} />
                     <p class="capitalize">#{pokemon.id} {pokemon.name}</p>
                 </a>
 
